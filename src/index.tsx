@@ -1,18 +1,30 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import {Provider} from "mobx-react";
+import { h, render } from 'hypnode';
 
-import {RootStore} from "./store/RootStore";
-import App from "./components/App";
+/* -----------------------------------
+ *
+ * Components
+ *
+ * -------------------------------- */
 
-const rootStore = new RootStore();
+import { Button } from './components/button.component';
+
+/* -----------------------------------
+ *
+ * Root
+ *
+ * -------------------------------- */
 
 const Root = () => (
-    <Provider {...rootStore}>
-        <App />
-    </Provider>
+  <div>
+    <p>Simple hypnode demo</p>
+    <Button />
+  </div>
 );
 
-ReactDOM.render(
-    <Root/>, document.getElementById('root'));
+/* -----------------------------------
+ *
+ * Render
+ *
+ * -------------------------------- */
 
+render(document.getElementById('root'), <Root />);
